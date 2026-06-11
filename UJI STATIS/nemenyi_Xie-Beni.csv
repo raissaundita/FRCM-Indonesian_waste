@@ -1,0 +1,4 @@
+Metric,Method1,Method2,RankDiff,CD,Significant
+Xie-Beni,FCM,FA-FRCM,1.37,0.3314,Ya
+Xie-Beni,FCM,FRCM,1.57,0.3314,Ya
+Xie-Beni,FA-FRCM,FRCM,0.2,0.3314,Tidak

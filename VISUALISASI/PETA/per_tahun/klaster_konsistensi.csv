@@ -1,0 +1,39 @@
+Provinsi,Klaster_Dominan,Tahun_Dominan,Total_Tahun,Konsisten,Status
+Aceh,Klaster 1,4,7,False,Berpindah Klaster
+Bali,Klaster 3,7,7,True,Konsisten
+Banten,Klaster 2,6,7,False,Berpindah Klaster
+Bengkulu,Klaster 1,5,7,False,Berpindah Klaster
+DKI Jakarta,Klaster 2,5,7,False,Berpindah Klaster
+Daerah Istimewa Yogyakarta,Klaster 1,5,7,False,Berpindah Klaster
+Gorontalo,Klaster 1,5,7,False,Berpindah Klaster
+Jambi,Klaster 1,7,7,True,Konsisten
+Jawa Barat,Klaster 2,7,7,True,Konsisten
+Jawa Tengah,Klaster 1,6,7,False,Berpindah Klaster
+Jawa Timur,Klaster 1,7,7,True,Konsisten
+Kalimantan Barat,Klaster 1,7,7,True,Konsisten
+Kalimantan Selatan,Klaster 1,7,7,True,Konsisten
+Kalimantan Tengah,Klaster 1,7,7,True,Konsisten
+Kalimantan Timur,Klaster 1,7,7,True,Konsisten
+Kalimantan Utara,Klaster 1,7,7,True,Konsisten
+Kepulauan Bangka Belitung,Klaster 1,6,7,False,Berpindah Klaster
+Kepulauan Riau,Klaster 1,7,7,True,Konsisten
+Lampung,Klaster 1,5,7,False,Berpindah Klaster
+Maluku,Klaster 4,4,7,False,Berpindah Klaster
+Maluku Utara,Klaster 1,6,7,False,Berpindah Klaster
+Nusa Tenggara Barat,Klaster 1,6,7,False,Berpindah Klaster
+Nusa Tenggara Timur,Klaster 1,6,7,False,Berpindah Klaster
+Papua,Klaster 4,4,7,False,Berpindah Klaster
+Papua Barat,Klaster 4,6,7,False,Berpindah Klaster
+Papua Barat Daya,Klaster 4,3,4,False,Berpindah Klaster
+Papua Pegunungan,Klaster 4,4,4,True,Konsisten
+Papua Selatan,Klaster 1,3,4,False,Berpindah Klaster
+Papua Tengah,Klaster 3,4,4,True,Konsisten
+Riau,Klaster 1,5,7,False,Berpindah Klaster
+Sulawesi Barat,Klaster 1,7,7,True,Konsisten
+Sulawesi Selatan,Klaster 1,7,7,True,Konsisten
+Sulawesi Tengah,Klaster 1,6,7,False,Berpindah Klaster
+Sulawesi Tenggara,Klaster 1,7,7,True,Konsisten
+Sulawesi Utara,Klaster 1,7,7,True,Konsisten
+Sumatera Barat,Klaster 1,7,7,True,Konsisten
+Sumatera Selatan,Klaster 1,6,7,False,Berpindah Klaster
+Sumatera Utara,Klaster 1,6,7,False,Berpindah Klaster

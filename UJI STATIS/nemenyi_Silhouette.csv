@@ -1,0 +1,7 @@
+Metric,Method1,Method2,RankDiff,CD,Significant
+Silhouette,FRCM,K-Means,0.78,0.469,Ya
+Silhouette,FRCM,FA-FRCM,1.08,0.469,Ya
+Silhouette,FRCM,FCM,2.62,0.469,Ya
+Silhouette,K-Means,FA-FRCM,0.3,0.469,Tidak
+Silhouette,K-Means,FCM,1.84,0.469,Ya
+Silhouette,FA-FRCM,FCM,1.54,0.469,Ya

@@ -1,0 +1,7 @@
+Metric,Method1,Method2,RankDiff,CD,Significant
+Dunn,K-Means,FRCM,0.205,0.469,Tidak
+Dunn,K-Means,FA-FRCM,1.07,0.469,Ya
+Dunn,K-Means,FCM,1.225,0.469,Ya
+Dunn,FRCM,FA-FRCM,0.865,0.469,Ya
+Dunn,FRCM,FCM,1.02,0.469,Ya
+Dunn,FA-FRCM,FCM,0.155,0.469,Tidak

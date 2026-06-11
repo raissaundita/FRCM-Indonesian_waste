@@ -1,0 +1,7 @@
+Metric,Method1,Method2,RankDiff,CD,Significant
+SP,FCM,FRCM,1.25,0.469,Ya
+SP,FCM,K-Means,2.18,0.469,Ya
+SP,FCM,FA-FRCM,2.57,0.469,Ya
+SP,FRCM,K-Means,0.93,0.469,Ya
+SP,FRCM,FA-FRCM,1.32,0.469,Ya
+SP,K-Means,FA-FRCM,0.39,0.469,Tidak

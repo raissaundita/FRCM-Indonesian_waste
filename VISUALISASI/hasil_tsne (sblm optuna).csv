@@ -1,0 +1,255 @@
+TSNE1,TSNE2,cluster,Provinsi
+-3.1327634,45.48121,3,Aceh
+-5.20032,48.57939,2,Bali
+6.439542,54.30657,1,Banten
+-6.1670575,49.684635,2,Bengkulu
+-3.6065004,53.30998,0,DKI Jakarta
+-1.9045013,57.52712,0,Daerah Istimewa Yogyakarta
+-0.16746214,50.219513,0,Gorontalo
+-0.69584423,46.580746,0,Jambi
+5.4743757,53.658035,1,Jawa Barat
+-1.3928667,56.132427,0,Jawa Tengah
+-1.0247529,55.68584,0,Jawa Timur
+0.78173375,50.41174,0,Kalimantan Barat
+-1.4953918,54.870754,0,Kalimantan Selatan
+-1.9371758,52.640556,0,Kalimantan Tengah
+0.08366425,55.090385,0,Kalimantan Timur
+0.6093605,53.22274,0,Kalimantan Utara
+-2.9455788,46.266273,3,Kepulauan Bangka Belitung
+0.67147106,49.40291,0,Kepulauan Riau
+4.6968484,52.036396,1,Lampung
+-1.7439142,49.80617,0,Maluku
+-3.3757892,50.77764,0,Maluku Utara
+-6.054961,51.720867,0,Nusa Tenggara Barat
+-2.0737112,48.259865,0,Nusa Tenggara Timur
+0.8526743,45.994987,0,Papua
+-3.7906601,44.493652,3,Papua Barat
+4.3489866,51.250206,1,Riau
+-2.6305556,57.828762,0,Sulawesi Barat
+-2.2008266,51.31999,0,Sulawesi Selatan
+-0.31966206,46.97012,0,Sulawesi Tengah
+-5.410672,50.22204,0,Sulawesi Tenggara
+-1.2956399,51.631065,0,Sulawesi Utara
+-0.6948127,53.6091,0,Sumatera Barat
+5.100793,53.266872,1,Sumatera Selatan
+0.24387534,48.473385,0,Sumatera Utara
+-66.406395,4.4029827,3,Aceh
+-62.176506,4.981028,2,Bali
+-53.96659,13.744017,1,Banten
+-58.074814,8.390073,0,Bengkulu
+-53.472355,11.585444,1,DKI Jakarta
+-58.522305,13.534307,0,Daerah Istimewa Yogyakarta
+-59.528526,10.667362,0,Gorontalo
+-64.09057,7.512856,0,Jambi
+-54.35218,12.545952,1,Jawa Barat
+-55.646343,10.588053,0,Jawa Tengah
+-57.02078,12.197812,0,Jawa Timur
+-57.193825,10.299002,0,Kalimantan Barat
+-58.253773,11.346929,0,Kalimantan Selatan
+-59.57976,8.595073,0,Kalimantan Tengah
+-59.321377,11.82206,0,Kalimantan Timur
+-62.421856,11.282966,0,Kalimantan Utara
+-59.447796,5.2260695,0,Kepulauan Bangka Belitung
+-62.547913,9.841342,0,Kepulauan Riau
+-62.439564,6.1672244,0,Lampung
+-65.80207,5.7649536,3,Maluku
+-61.095844,7.5420094,0,Maluku Utara
+-64.8667,4.772309,3,Nusa Tenggara Barat
+-64.33336,6.332657,0,Nusa Tenggara Timur
+-66.10637,7.3346224,3,Papua
+-59.29064,3.9805727,0,Papua Barat
+-67.435005,6.851178,3,Riau
+-66.19593,8.588647,0,Sulawesi Barat
+-59.47472,7.574384,0,Sulawesi Selatan
+-57.581535,6.7223225,0,Sulawesi Tengah
+-58.85919,7.6985173,0,Sulawesi Tenggara
+-55.67595,7.457906,0,Sulawesi Utara
+-59.99965,10.376109,0,Sumatera Barat
+-56.006493,11.966809,0,Sumatera Selatan
+-61.062126,9.781441,0,Sumatera Utara
+-19.68778,10.275195,3,Aceh
+-23.07063,5.073084,2,Bali
+-22.55366,-1.6838055,1,Banten
+-21.76118,4.0923524,2,Bengkulu
+-20.781227,-2.9847395,1,DKI Jakarta
+-16.512701,-2.3824258,0,Daerah Istimewa Yogyakarta
+-20.967493,12.199013,3,Gorontalo
+-21.276472,1.1426135,0,Jambi
+-21.363949,-1.7836556,1,Jawa Barat
+-20.599169,-0.89830583,0,Jawa Tengah
+-19.457813,0.19210024,0,Jawa Timur
+-16.530363,-0.63949513,0,Kalimantan Barat
+-17.712187,0.5633639,0,Kalimantan Selatan
+-17.129715,5.7171674,0,Kalimantan Tengah
+-17.669527,1.1446613,0,Kalimantan Timur
+-14.699765,2.2351286,0,Kalimantan Utara
+-20.951632,7.649709,0,Kepulauan Bangka Belitung
+-16.19737,8.630833,0,Kepulauan Riau
+-20.427263,5.088739,0,Lampung
+-20.07403,10.46829,3,Maluku
+-22.193537,7.5317597,0,Maluku Utara
+-20.134287,6.742653,0,Nusa Tenggara Barat
+-16.96352,8.739098,0,Nusa Tenggara Timur
+-19.455368,5.722957,0,Papua
+-19.764452,11.828672,3,Papua Barat
+-18.189499,-0.5984254,0,Riau
+-18.482788,3.342345,0,Sulawesi Barat
+-19.59973,4.2388577,0,Sulawesi Selatan
+-17.351711,9.3639345,0,Sulawesi Tengah
+-15.845655,2.0434973,0,Sulawesi Tenggara
+-17.896713,5.255759,0,Sulawesi Utara
+-16.590292,1.0517489,0,Sumatera Barat
+-18.683681,0.985704,0,Sumatera Selatan
+-20.069275,8.737109,3,Sumatera Utara
+-21.177513,-41.033455,0,Aceh
+-19.182028,-47.478603,2,Bali
+-30.316664,-36.19661,1,Banten
+-25.88198,-37.039288,0,Bengkulu
+-20.337502,-45.929264,0,DKI Jakarta
+-29.047823,-43.05635,0,Daerah Istimewa Yogyakarta
+-22.602724,-44.71417,0,Gorontalo
+-23.06697,-44.195137,0,Jambi
+-29.128273,-36.155098,1,Jawa Barat
+-28.75204,-37.13589,0,Jawa Tengah
+-28.389153,-38.022976,0,Jawa Timur
+-24.65519,-42.8653,0,Kalimantan Barat
+-26.954355,-40.448364,0,Kalimantan Selatan
+-23.125565,-43.30066,0,Kalimantan Tengah
+-27.96377,-40.633633,0,Kalimantan Timur
+-27.905483,-44.644955,0,Kalimantan Utara
+-23.57596,-38.21651,0,Kepulauan Bangka Belitung
+-26.45471,-45.62165,0,Kepulauan Riau
+-28.649595,-41.41886,0,Lampung
+-27.27052,-43.078335,0,Maluku
+-18.143688,-39.842278,3,Maluku Utara
+-20.234154,-38.66245,0,Nusa Tenggara Barat
+-19.72984,-41.94922,0,Nusa Tenggara Timur
+-15.0481615,-38.716183,3,Papua
+-15.061042,-38.72744,3,Papua Barat
+-18.80392,-40.93643,3,Papua Barat Daya
+-16.931625,-41.6595,3,Papua Pegunungan
+-23.40738,-45.284767,0,Papua Selatan
+-19.008333,-47.658497,2,Papua Tengah
+-22.380991,-40.933376,0,Riau
+-30.323027,-40.480587,0,Sulawesi Barat
+-25.48471,-39.11965,0,Sulawesi Selatan
+-19.991467,-40.038017,0,Sulawesi Tengah
+-25.27153,-38.597935,0,Sulawesi Tenggara
+-23.996523,-39.861828,0,Sulawesi Utara
+-27.491186,-41.561756,0,Sumatera Barat
+-27.168116,-39.45707,0,Sumatera Selatan
+-22.992086,-40.264893,0,Sumatera Utara
+9.31525,-42.30919,0,Aceh
+8.900711,-35.91831,2,Bali
+20.846886,-37.73109,1,Banten
+19.941956,-43.87536,0,Bengkulu
+19.619362,-35.883385,1,DKI Jakarta
+19.548172,-39.18219,1,Daerah Istimewa Yogyakarta
+9.760802,-45.335823,0,Gorontalo
+17.859074,-45.846035,0,Jambi
+19.676596,-37.441067,1,Jawa Barat
+17.914,-38.176517,0,Jawa Tengah
+18.844193,-44.08181,0,Jawa Timur
+18.020348,-40.176483,0,Kalimantan Barat
+17.833244,-43.017925,0,Kalimantan Selatan
+15.027993,-40.916027,0,Kalimantan Tengah
+19.159994,-43.101322,0,Kalimantan Timur
+15.163125,-44.298775,0,Kalimantan Utara
+14.121541,-41.30516,0,Kepulauan Bangka Belitung
+16.089869,-39.811733,0,Kepulauan Riau
+16.81281,-41.15976,0,Lampung
+10.028174,-45.29894,0,Maluku
+13.006427,-39.871674,0,Maluku Utara
+15.873694,-36.958096,0,Nusa Tenggara Barat
+9.034314,-41.935097,0,Nusa Tenggara Timur
+7.9466896,-43.59763,3,Papua
+6.38692,-42.89422,3,Papua Barat
+6.919276,-41.906395,3,Papua Barat Daya
+5.169512,-42.173923,3,Papua Pegunungan
+7.493126,-44.80591,3,Papua Selatan
+8.859024,-35.872936,2,Papua Tengah
+10.079029,-41.543343,0,Riau
+14.238195,-37.53633,0,Sulawesi Barat
+14.4586935,-40.220566,0,Sulawesi Selatan
+12.821165,-37.419228,0,Sulawesi Tengah
+15.79407,-41.45881,0,Sulawesi Tenggara
+14.13638,-42.612167,0,Sulawesi Utara
+18.161757,-42.108757,0,Sumatera Barat
+15.840092,-43.290398,0,Sumatera Selatan
+9.515512,-40.616943,0,Sumatera Utara
+47.95539,-0.4673452,0,Aceh
+41.640896,-10.337355,2,Bali
+37.343834,-7.096601,1,Banten
+45.23804,-8.772859,0,Bengkulu
+36.18151,-3.886716,1,DKI Jakarta
+37.788345,-6.200893,1,Daerah Istimewa Yogyakarta
+50.41034,-1.4755315,3,Gorontalo
+43.05085,-5.4049644,0,Jambi
+38.74944,-5.560519,1,Jawa Barat
+39.68262,-5.8764014,0,Jawa Tengah
+40.63466,-5.979843,0,Jawa Timur
+42.50207,-2.7222238,0,Kalimantan Barat
+42.467888,-3.8023016,0,Kalimantan Selatan
+44.824757,-1.2883034,0,Kalimantan Tengah
+41.862923,-4.9586844,0,Kalimantan Timur
+47.290367,-7.262349,0,Kalimantan Utara
+49.59616,-4.0255594,0,Kepulauan Bangka Belitung
+45.712616,-4.651025,0,Kepulauan Riau
+41.41366,-8.416776,0,Lampung
+50.382748,2.3292673,3,Maluku
+44.66595,-6.3464856,0,Maluku Utara
+48.600674,-2.0681887,0,Nusa Tenggara Barat
+47.605785,0.13813704,3,Nusa Tenggara Timur
+45.741966,0.20448405,0,Papua
+50.927773,1.8174359,3,Papua Barat
+47.29955,0.8846076,3,Papua Barat Daya
+49.457253,3.3896005,3,Papua Pegunungan
+44.967484,1.201354,0,Papua Selatan
+41.680305,-11.005104,2,Papua Tengah
+49.205784,-5.8174543,0,Riau
+44.40262,-2.5995796,0,Sulawesi Barat
+44.757935,-5.059289,0,Sulawesi Selatan
+49.42034,-0.38213935,3,Sulawesi Tengah
+46.494377,-5.419042,0,Sulawesi Tenggara
+48.15686,-4.272172,0,Sulawesi Utara
+43.96947,-4.331737,0,Sumatera Barat
+47.868298,-4.840053,0,Sumatera Selatan
+42.81125,-7.7138395,0,Sumatera Utara
+18.163692,12.7857485,0,Aceh
+14.608798,12.26821,2,Bali
+21.780632,11.861704,3,Banten
+16.659798,1.4233339,0,Bengkulu
+34.761112,-3.081333,1,DKI Jakarta
+22.18154,1.8531691,0,Daerah Istimewa Yogyakarta
+16.028347,12.170226,0,Gorontalo
+18.992668,9.162052,0,Jambi
+23.907278,3.2273648,1,Jawa Barat
+24.119902,3.9510744,1,Jawa Tengah
+21.978506,4.816398,0,Jawa Timur
+18.246172,5.3831363,0,Kalimantan Barat
+20.869406,5.879375,0,Kalimantan Selatan
+18.856632,7.6677237,0,Kalimantan Tengah
+21.099098,4.7091513,0,Kalimantan Timur
+20.401354,3.1545217,0,Kalimantan Utara
+22.837896,6.456922,0,Kepulauan Bangka Belitung
+20.523617,7.6365337,0,Kepulauan Riau
+25.267483,6.3713984,1,Lampung
+19.815397,13.98534,3,Maluku
+16.88144,9.213937,0,Maluku Utara
+20.676826,11.146564,0,Nusa Tenggara Barat
+18.174519,12.460312,0,Nusa Tenggara Timur
+18.529621,14.116395,3,Papua
+21.325298,13.993156,3,Papua Barat
+15.666251,6.403766,0,Papua Barat Daya
+20.253637,15.674287,3,Papua Pegunungan
+17.435726,14.246447,0,Papua Selatan
+13.930646,12.337809,2,Papua Tengah
+24.01319,6.61758,0,Riau
+15.021512,5.924187,0,Sulawesi Barat
+18.684864,8.474271,0,Sulawesi Selatan
+16.062128,1.2496482,0,Sulawesi Tengah
+16.86544,7.1205025,0,Sulawesi Tenggara
+20.051033,8.028621,0,Sulawesi Utara
+19.84894,4.4234405,0,Sumatera Barat
+18.149927,2.2554538,0,Sumatera Selatan
+19.339563,6.1328034,0,Sumatera Utara

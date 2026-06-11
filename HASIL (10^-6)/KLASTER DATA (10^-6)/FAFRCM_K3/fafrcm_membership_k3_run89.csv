@@ -1,0 +1,255 @@
+Tahun,Provinsi,u_cluster_0,u_cluster_1,u_cluster_2,label,region_type,n_active_clusters
+2019,Aceh,0.0,0.0,1.0,2,lower,1
+2019,Bali,0.0,1.0,0.0,1,lower,1
+2019,Banten,1.0,0.0,0.0,0,lower,1
+2019,Bengkulu,0.0,1.0,0.0,1,lower,1
+2019,DKI Jakarta,0.5148641494548123,0.4851358505451876,0.0,0,boundary,2
+2019,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2019,Gorontalo,0.4249168672990673,0.5750831327009327,0.0,1,boundary,2
+2019,Jambi,0.0,1.0,0.0,1,lower,1
+2019,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2019,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2019,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2019,Kalimantan Barat,0.5432867987653452,0.45671320123465475,0.0,0,boundary,2
+2019,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2019,Kalimantan Tengah,1.0,0.0,0.0,0,lower,1
+2019,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2019,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2019,Kepulauan Bangka Belitung,0.0,1.0,0.0,1,lower,1
+2019,Kepulauan Riau,0.37515547321976445,0.6248445267802355,0.0,1,boundary,2
+2019,Lampung,0.5473554810449454,0.4526445189550547,0.0,0,boundary,2
+2019,Maluku,0.0,1.0,0.0,1,lower,1
+2019,Maluku Utara,0.43731119323970935,0.5626888067602906,0.0,1,boundary,2
+2019,Nusa Tenggara Barat,0.5557692971422955,0.44423070285770455,0.0,0,boundary,2
+2019,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2019,Papua,0.0,1.0,0.0,1,lower,1
+2019,Papua Barat,0.0,1.0,0.0,1,lower,1
+2019,Riau,0.4404869611773358,0.5595130388226642,0.0,1,boundary,2
+2019,Sulawesi Barat,1.0,0.0,0.0,0,lower,1
+2019,Sulawesi Selatan,0.5650175513079135,0.43498244869208647,0.0,0,boundary,2
+2019,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2019,Sulawesi Tenggara,0.0,1.0,0.0,1,lower,1
+2019,Sulawesi Utara,0.555664588575713,0.444335411424287,0.0,0,boundary,2
+2019,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2019,Sumatera Selatan,1.0,0.0,0.0,0,lower,1
+2019,Sumatera Utara,0.0,1.0,0.0,1,lower,1
+2020,Aceh,0.0,0.0,1.0,2,lower,1
+2020,Bali,0.0,1.0,0.0,1,lower,1
+2020,Banten,1.0,0.0,0.0,0,lower,1
+2020,Bengkulu,1.0,0.0,0.0,0,lower,1
+2020,DKI Jakarta,1.0,0.0,0.0,0,lower,1
+2020,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2020,Gorontalo,1.0,0.0,0.0,0,lower,1
+2020,Jambi,0.0,1.0,0.0,1,lower,1
+2020,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2020,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2020,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2020,Kalimantan Barat,1.0,0.0,0.0,0,lower,1
+2020,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2020,Kalimantan Tengah,0.5999888513037203,0.40001114869627974,0.0,0,boundary,2
+2020,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2020,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2020,Kepulauan Bangka Belitung,0.3944497136014801,0.6055502863985199,0.0,1,boundary,2
+2020,Kepulauan Riau,0.49924240213288534,0.5007575978671145,0.0,1,boundary,2
+2020,Lampung,0.0,1.0,0.0,1,lower,1
+2020,Maluku,0.0,0.44633902609008896,0.553660973909911,2,boundary,2
+2020,Maluku Utara,0.5041510675747322,0.49584893242526784,0.0,0,boundary,2
+2020,Nusa Tenggara Barat,0.0,0.5632400321075199,0.4367599678924801,1,boundary,2
+2020,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2020,Papua,0.0,1.0,0.0,1,lower,1
+2020,Papua Barat,0.0,1.0,0.0,1,lower,1
+2020,Riau,0.0,0.0,1.0,2,lower,1
+2020,Sulawesi Barat,0.4503876531364367,0.5496123468635633,0.0,1,boundary,2
+2020,Sulawesi Selatan,0.5004378175904177,0.4995621824095823,0.0,0,boundary,2
+2020,Sulawesi Tengah,1.0,0.0,0.0,0,lower,1
+2020,Sulawesi Tenggara,0.5929236684086922,0.40707633159130785,0.0,0,boundary,2
+2020,Sulawesi Utara,0.5289236128733478,0.47107638712665223,0.0,0,boundary,2
+2020,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2020,Sumatera Selatan,1.0,0.0,0.0,0,lower,1
+2020,Sumatera Utara,0.6003074477154128,0.3996925522845872,0.0,0,boundary,2
+2021,Aceh,0.0,1.0,0.0,1,lower,1
+2021,Bali,0.0,1.0,0.0,1,lower,1
+2021,Banten,1.0,0.0,0.0,0,lower,1
+2021,Bengkulu,0.44373090414758587,0.556269095852414,0.0,1,boundary,2
+2021,DKI Jakarta,1.0,0.0,0.0,0,lower,1
+2021,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2021,Gorontalo,0.0,0.0,1.0,2,lower,1
+2021,Jambi,0.5550294053642206,0.4449705946357794,0.0,0,boundary,2
+2021,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2021,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2021,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2021,Kalimantan Barat,1.0,0.0,0.0,0,lower,1
+2021,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2021,Kalimantan Tengah,0.0,1.0,0.0,1,lower,1
+2021,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2021,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2021,Kepulauan Bangka Belitung,0.0,1.0,0.0,1,lower,1
+2021,Kepulauan Riau,0.0,1.0,0.0,1,lower,1
+2021,Lampung,0.0,1.0,0.0,1,lower,1
+2021,Maluku,0.0,0.512807254262985,0.487192745737015,1,boundary,2
+2021,Maluku Utara,0.0,1.0,0.0,1,lower,1
+2021,Nusa Tenggara Barat,0.4256582896254034,0.5743417103745966,0.0,1,boundary,2
+2021,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2021,Papua,0.0,1.0,0.0,1,lower,1
+2021,Papua Barat,0.0,0.0,1.0,2,lower,1
+2021,Riau,1.0,0.0,0.0,0,lower,1
+2021,Sulawesi Barat,0.5514505146452098,0.4485494853547904,0.0,0,boundary,2
+2021,Sulawesi Selatan,0.4743791985328579,0.5256208014671421,0.0,1,boundary,2
+2021,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2021,Sulawesi Tenggara,1.0,0.0,0.0,0,lower,1
+2021,Sulawesi Utara,0.5343023198783681,0.46569768012163193,0.0,0,boundary,2
+2021,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2021,Sumatera Selatan,1.0,0.0,0.0,0,lower,1
+2021,Sumatera Utara,0.0,1.0,0.0,1,lower,1
+2022,Aceh,0.0,1.0,0.0,1,lower,1
+2022,Bali,0.0,1.0,0.0,1,lower,1
+2022,Banten,1.0,0.0,0.0,0,lower,1
+2022,Bengkulu,1.0,0.0,0.0,0,lower,1
+2022,DKI Jakarta,0.0,1.0,0.0,1,lower,1
+2022,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2022,Gorontalo,0.0,1.0,0.0,1,lower,1
+2022,Jambi,0.0,1.0,0.0,1,lower,1
+2022,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2022,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2022,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2022,Kalimantan Barat,0.5548395395283882,0.44516046047161184,0.0,0,boundary,2
+2022,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2022,Kalimantan Tengah,0.0,1.0,0.0,1,lower,1
+2022,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2022,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2022,Kepulauan Bangka Belitung,0.4200128130798334,0.5799871869201666,0.0,1,boundary,2
+2022,Kepulauan Riau,0.46221849736705306,0.537781502632947,0.0,1,boundary,2
+2022,Lampung,1.0,0.0,0.0,0,lower,1
+2022,Maluku,0.5171468811558048,0.48285311884419513,0.0,0,boundary,2
+2022,Maluku Utara,0.0,0.48801026111564444,0.5119897388843556,2,boundary,2
+2022,Nusa Tenggara Barat,0.0,1.0,0.0,1,lower,1
+2022,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2022,Papua,0.0,0.0,1.0,2,lower,1
+2022,Papua Barat,0.0,0.0,1.0,2,lower,1
+2022,Papua Barat Daya,0.0,1.0,0.0,1,lower,1
+2022,Papua Pegunungan,0.0,0.0,1.0,2,lower,1
+2022,Papua Selatan,0.0,1.0,0.0,1,lower,1
+2022,Papua Tengah,0.0,1.0,0.0,1,lower,1
+2022,Riau,0.3824948821240194,0.6175051178759806,0.0,1,boundary,2
+2022,Sulawesi Barat,0.5514505146452098,0.4485494853547904,0.0,0,boundary,2
+2022,Sulawesi Selatan,0.599037034605004,0.400962965394996,0.0,0,boundary,2
+2022,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2022,Sulawesi Tenggara,0.6238209046335587,0.3761790953664414,0.0,0,boundary,2
+2022,Sulawesi Utara,0.47596813721693115,0.5240318627830688,0.0,1,boundary,2
+2022,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2022,Sumatera Selatan,1.0,0.0,0.0,0,lower,1
+2022,Sumatera Utara,0.40402222470856186,0.5959777752914381,0.0,1,boundary,2
+2023,Aceh,0.0,1.0,0.0,1,lower,1
+2023,Bali,0.0,1.0,0.0,1,lower,1
+2023,Banten,1.0,0.0,0.0,0,lower,1
+2023,Bengkulu,1.0,0.0,0.0,0,lower,1
+2023,DKI Jakarta,1.0,0.0,0.0,0,lower,1
+2023,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2023,Gorontalo,0.0,1.0,0.0,1,lower,1
+2023,Jambi,1.0,0.0,0.0,0,lower,1
+2023,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2023,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2023,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2023,Kalimantan Barat,0.5864208447022218,0.41357915529777817,0.0,0,boundary,2
+2023,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2023,Kalimantan Tengah,0.3671023981287144,0.6328976018712855,0.0,1,boundary,2
+2023,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2023,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2023,Kepulauan Bangka Belitung,0.43181171406630053,0.5681882859336994,0.0,1,boundary,2
+2023,Kepulauan Riau,0.5855789984753286,0.41442100152467154,0.0,0,boundary,2
+2023,Lampung,1.0,0.0,0.0,0,lower,1
+2023,Maluku,0.0,1.0,0.0,1,lower,1
+2023,Maluku Utara,0.4264147046217763,0.5735852953782238,0.0,1,boundary,2
+2023,Nusa Tenggara Barat,0.5278689469422179,0.4721310530577822,0.0,0,boundary,2
+2023,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2023,Papua,0.0,0.0,1.0,2,lower,1
+2023,Papua Barat,0.0,0.0,1.0,2,lower,1
+2023,Papua Barat Daya,0.0,0.46282391411726487,0.5371760858827351,2,boundary,2
+2023,Papua Pegunungan,0.0,0.0,1.0,2,lower,1
+2023,Papua Selatan,0.0,0.0,1.0,2,lower,1
+2023,Papua Tengah,0.0,1.0,0.0,1,lower,1
+2023,Riau,0.0,1.0,0.0,1,lower,1
+2023,Sulawesi Barat,0.5514505146452098,0.4485494853547903,0.0,0,boundary,2
+2023,Sulawesi Selatan,0.5001366980215489,0.4998633019784511,0.0,0,boundary,2
+2023,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2023,Sulawesi Tenggara,0.5629901366328662,0.4370098633671337,0.0,0,boundary,2
+2023,Sulawesi Utara,0.42871757007258454,0.5712824299274155,0.0,1,boundary,2
+2023,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2023,Sumatera Selatan,1.0,0.0,0.0,0,lower,1
+2023,Sumatera Utara,0.0,1.0,0.0,1,lower,1
+2024,Aceh,0.0,1.0,0.0,1,lower,1
+2024,Bali,0.0,1.0,0.0,1,lower,1
+2024,Banten,1.0,0.0,0.0,0,lower,1
+2024,Bengkulu,1.0,0.0,0.0,0,lower,1
+2024,DKI Jakarta,1.0,0.0,0.0,0,lower,1
+2024,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2024,Gorontalo,0.0,1.0,0.0,1,lower,1
+2024,Jambi,1.0,0.0,0.0,0,lower,1
+2024,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2024,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2024,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2024,Kalimantan Barat,0.6006355057786115,0.3993644942213886,0.0,0,boundary,2
+2024,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2024,Kalimantan Tengah,0.0,1.0,0.0,1,lower,1
+2024,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2024,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2024,Kepulauan Bangka Belitung,0.0,1.0,0.0,1,lower,1
+2024,Kepulauan Riau,1.0,0.0,0.0,0,lower,1
+2024,Lampung,0.45893090378221657,0.5410690962177834,0.0,1,boundary,2
+2024,Maluku,0.0,0.0,1.0,2,lower,1
+2024,Maluku Utara,0.4264147046217763,0.5735852953782238,0.0,1,boundary,2
+2024,Nusa Tenggara Barat,0.0,1.0,0.0,1,lower,1
+2024,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2024,Papua,0.0,1.0,0.0,1,lower,1
+2024,Papua Barat,0.0,0.0,1.0,2,lower,1
+2024,Papua Barat Daya,0.0,1.0,0.0,1,lower,1
+2024,Papua Pegunungan,0.0,0.0,1.0,2,lower,1
+2024,Papua Selatan,0.0,1.0,0.0,1,lower,1
+2024,Papua Tengah,0.0,1.0,0.0,1,lower,1
+2024,Riau,0.48402401917743443,0.5159759808225656,0.0,1,boundary,2
+2024,Sulawesi Barat,0.5028797420949488,0.4971202579050512,0.0,0,boundary,2
+2024,Sulawesi Selatan,0.5115271985794531,0.48847280142054694,0.0,0,boundary,2
+2024,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2024,Sulawesi Tenggara,0.5716307043329781,0.4283692956670219,0.0,0,boundary,2
+2024,Sulawesi Utara,0.0,1.0,0.0,1,lower,1
+2024,Sumatera Barat,0.5793070897440253,0.4206929102559746,0.0,0,boundary,2
+2024,Sumatera Selatan,0.0,1.0,0.0,1,lower,1
+2024,Sumatera Utara,0.3976405828058361,0.602359417194164,0.0,1,boundary,2
+2025,Aceh,0.0,1.0,0.0,1,lower,1
+2025,Bali,0.0,1.0,0.0,1,lower,1
+2025,Banten,0.0,0.0,1.0,2,lower,1
+2025,Bengkulu,0.4671116932773472,0.5328883067226527,0.0,1,boundary,2
+2025,DKI Jakarta,1.0,0.0,0.0,0,lower,1
+2025,Daerah Istimewa Yogyakarta,1.0,0.0,0.0,0,lower,1
+2025,Gorontalo,0.0,1.0,0.0,1,lower,1
+2025,Jambi,0.38644125230728466,0.6135587476927153,0.0,1,boundary,2
+2025,Jawa Barat,1.0,0.0,0.0,0,lower,1
+2025,Jawa Tengah,1.0,0.0,0.0,0,lower,1
+2025,Jawa Timur,1.0,0.0,0.0,0,lower,1
+2025,Kalimantan Barat,0.5426135646032978,0.4573864353967021,0.0,0,boundary,2
+2025,Kalimantan Selatan,1.0,0.0,0.0,0,lower,1
+2025,Kalimantan Tengah,0.6211257524098907,0.3788742475901093,0.0,0,boundary,2
+2025,Kalimantan Timur,1.0,0.0,0.0,0,lower,1
+2025,Kalimantan Utara,1.0,0.0,0.0,0,lower,1
+2025,Kepulauan Bangka Belitung,1.0,0.0,0.0,0,lower,1
+2025,Kepulauan Riau,0.5147422150338848,0.48525778496611516,0.0,0,boundary,2
+2025,Lampung,1.0,0.0,0.0,0,lower,1
+2025,Maluku,0.0,0.5826676232107304,0.41733237678926954,1,boundary,2
+2025,Maluku Utara,0.4264147046217763,0.5735852953782238,0.0,1,boundary,2
+2025,Nusa Tenggara Barat,0.41365834434409643,0.5863416556559035,0.0,1,boundary,2
+2025,Nusa Tenggara Timur,0.0,1.0,0.0,1,lower,1
+2025,Papua,0.0,1.0,0.0,1,lower,1
+2025,Papua Barat,0.0,0.0,1.0,2,lower,1
+2025,Papua Barat Daya,1.0,0.0,0.0,0,lower,1
+2025,Papua Pegunungan,0.0,0.0,1.0,2,lower,1
+2025,Papua Selatan,0.0,1.0,0.0,1,lower,1
+2025,Papua Tengah,0.0,1.0,0.0,1,lower,1
+2025,Riau,1.0,0.0,0.0,0,lower,1
+2025,Sulawesi Barat,0.5514505146452098,0.4485494853547903,0.0,0,boundary,2
+2025,Sulawesi Selatan,0.4298088899742192,0.5701911100257807,0.0,1,boundary,2
+2025,Sulawesi Tengah,0.0,1.0,0.0,1,lower,1
+2025,Sulawesi Tenggara,0.5577492091774469,0.4422507908225532,0.0,0,boundary,2
+2025,Sulawesi Utara,0.4872834857536327,0.5127165142463673,0.0,1,boundary,2
+2025,Sumatera Barat,1.0,0.0,0.0,0,lower,1
+2025,Sumatera Selatan,0.5749072818112214,0.4250927181887786,0.0,0,boundary,2
+2025,Sumatera Utara,0.508294304658845,0.4917056953411551,0.0,0,boundary,2
