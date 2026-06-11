@@ -60,6 +60,6 @@ Dashboard/       -> Dashboard hasil analisis
 
 ## Penulis
 
-Raissa Undita
-Departemen Matematika
+Raissa Undita,
+Departemen Matematika,
 Institut Teknologi Sepuluh Nopember (ITS)
