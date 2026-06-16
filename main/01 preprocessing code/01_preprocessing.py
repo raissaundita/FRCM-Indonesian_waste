@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from scipy.stats import shapiro      # Shapiro-Wilk untuk uji normalitas
+from scipy.stats import shapiro      # Shapiro-Wilk for normality testing
 from sklearn.preprocessing import MinMaxScaler
 from pyampute.exploration.mcar_statistical_tests import MCARTest
 
@@ -20,29 +20,29 @@ ID_COLS    = ["Tahun", "Provinsi", "Kabupaten/Kota"]
 DROP_COLS  = ["Timbulan Sampah Tahunan(ton)"]
 
 SENTINEL_VALUE = 99999.99
-ROW_MISSING_THRESHOLD = 0.50  # baris dengan >50% kolom kosong di-drop
+ROW_MISSING_THRESHOLD = 0.50  # rows with >50% missing columns are dropped
 
-# FUNGSI BANTU:  berdasarkan uji normalitas Shapiro-Wilk (mean atau median)
+# HELPER FUNCTION: determine fill value based on Shapiro-Wilk normality test (mean or median)
 def tentukan_nilai_isi(x, alpha=0.05):
     """
-    Alur keputusan:
-    len(x) == 0 : tidak ada data → tidak bisa diisi
-    len(x) == 1 : hanya 1 data → langsung pakai nilai itu
-                  (tidak perlu uji, karena mean = median = nilai itu sendiri)
-    len(x) >= 2 : lakukan uji Shapiro-Wilk, toleransi kesalahan 5%
-                  p >= 0.05 → normal → pakai mean
-                  p <  0.05 → tidak normal → pakai median
+    Decision flow:
+    len(x) == 0 : no data available → cannot be filled
+    len(x) == 1 : only 1 data point → use that value directly
+                  (no test needed, since mean = median = that single value)
+    len(x) >= 2 : perform Shapiro-Wilk test with 5% significance level
+                  p >= 0.05 → normal distribution → use mean
+                  p <  0.05 → non-normal distribution → use median
     """
     x = np.array(x, dtype=float)
     x = x[~np.isnan(x)]
 
     if len(x) == 0:
-        return np.nan, "tidak bisa diisi (tidak ada data referensi)", "tidak diuji"
+        return np.nan, "cannot be filled (no reference data available)", "not tested"
 
     elif len(x) == 1:
         fill   = float(x[0])
-        method = "nilai tunggal (hanya 1 data tersedia, mean = median)"
-        dist   = "tidak diuji"
+        method = "single value (only 1 data point available, mean = median)"
+        dist   = "not tested"
 
     else:
         _, p = shapiro(x)
@@ -50,53 +50,53 @@ def tentukan_nilai_isi(x, alpha=0.05):
 
         if p >= alpha:
             fill   = float(np.mean(x))
-            method = "mean (distribusi normal, Shapiro-Wilk)"
+            method = "mean (normal distribution, Shapiro-Wilk)"
         else:
             fill   = float(np.median(x))
-            method = "median (distribusi tidak normal, Shapiro-Wilk)"
+            method = "median (non-normal distribution, Shapiro-Wilk)"
 
     return fill, method, dist
 
 # ============================================================
-# TAHAP 1: LOAD DATA
+# STAGE 1: LOAD DATA
 df = pd.read_excel(FILE_PATH, sheet_name=SHEET_NAME)
 df.columns = df.columns.str.strip()
 df["Provinsi"] = df["Provinsi"].astype(str).str.strip()
 
 print("=" * 60)
-print("TAHAP 1 — DATA UNDERSTANDING (SEBELUM PREPROCESSING)")
+print("STAGE 1 — DATA UNDERSTANDING (BEFORE PREPROCESSING)")
 print("=" * 60)
-print("Jumlah baris :", df.shape[0])
-print("Jumlah kolom :", df.shape[1])
+print("Number of rows :", df.shape[0])
+print("Number of columns :", df.shape[1])
 
 for c in ID_COLS:
     if c not in df.columns:
-        raise ValueError(f"Kolom '{c}' tidak ditemukan. Cek nama kolom di Excel.")
-print("\nContoh 5 baris pertama:")
+        raise ValueError(f"Column '{c}' not found. Check column names in Excel.")
+print("\nFirst 5 rows:")
 print(df.head())
-print("\nInfo struktur & tipe data:")
+print("\nStructure & data types:")
 df.info()
 
 dup = int(df.duplicated().sum())
-print("\nJumlah baris duplikat:", dup)
+print("\nNumber of duplicate rows:", dup)
 
 mv     = df.isna().sum()
 mv_pct = (mv / len(df) * 100).round(2)
 missing_summary = pd.DataFrame(
     {"missing_count": mv, "missing_pct": mv_pct}
 ).sort_values("missing_count", ascending=False)
-print("\nMissing value per kolom:")
+print("\nMissing values per column:")
 print(missing_summary[missing_summary["missing_count"] > 0])
 
 num_cols_all = df.select_dtypes(include="number").columns
 scale_check  = df[num_cols_all].agg(["min", "max"]).T.sort_values("max", ascending=False)
-print("\nSkala numerik (min/max) - sebelum normalisasi:")
+print("\nNumerical scale (min/max) - before normalization:")
 print(scale_check)
 
 # ============================================================
-# TAHAP 2A: PENGECEKAN FORMAT & KELENGKAPAN DATA
+# STAGE 2A: FORMAT & COMPLETENESS CHECK
 print("\n" + "=" * 60)
-print("TAHAP 2A — PENGECEKAN FORMAT & KELENGKAPAN DATA")
+print("STAGE 2A — FORMAT & COMPLETENESS CHECK")
 print("=" * 60)
 
 percent_cols = [c for c in df.columns if "%" in c]
@@ -106,44 +106,44 @@ n_valid   = ((row_pct_sum >= 95) & (row_pct_sum <= 105)).sum()
 n_zero    = (row_pct_sum == 0).sum()
 n_partial = ((row_pct_sum > 0) & (row_pct_sum < 95)).sum()
 
-print(f"Rata-rata total persen : {row_pct_sum.mean():.2f}")
-print(f"Minimum total persen   : {row_pct_sum.min():.2f}")
-print(f"Maksimum total persen  : {row_pct_sum.max():.2f}")
-print(f"Standar deviasi        : {row_pct_sum.std():.2f}")
-print(f"\nBaris total persen 95-105% (valid)  : {n_valid}")
-print(f"Baris total persen = 0 (semua NaN) : {n_zero}")
-print(f"Baris total persen > 0 tapi < 95%  : {n_partial}")
-print("\nCATATAN: Baris total persen = 0 adalah baris yang seluruh kolom")
-print("komposisinya tidak dilaporkan ke SIPSN — bukan typo atau kesalahan data.")
+print(f"Average total percent : {row_pct_sum.mean():.2f}")
+print(f"Minimum total percent  : {row_pct_sum.min():.2f}")
+print(f"Maximum total percent  : {row_pct_sum.max():.2f}")
+print(f"Standard deviation     : {row_pct_sum.std():.2f}")
+print(f"\nRows with total percent 95-105% (valid)   : {n_valid}")
+print(f"Rows with total percent = 0 (all NaN)     : {n_zero}")
+print(f"Rows with total percent > 0 but < 95%     : {n_partial}")
+print("\nNOTE: Rows with total percent = 0 are rows where all composition")
+print("columns were not reported to SIPSN — not a typo or data error.")
 
 extreme_rows = df.loc[
     row_pct_sum == row_pct_sum.max(),
     ["Tahun", "Provinsi", "Kabupaten/Kota"] + percent_cols,
 ]
-print(f"\nBaris dengan total persen maksimum ({row_pct_sum.max()}):")
+print(f"\nRows with maximum total percent ({row_pct_sum.max()}):")
 print(extreme_rows)
 
 if 95 <= row_pct_sum.mean() <= 105:
-    print("\nKESIMPULAN: Komposisi persen secara umum mendekati 100%.")
+    print("\nCONCLUSION: Percentage composition is generally close to 100%.")
 else:
-    print("\nCATATAN: Rata-rata < 95% karena banyak baris yang seluruh")
-    print("kolom komposisinya kosong (tidak dilaporkan di SIPSN).")
+    print("\nNOTE: Average < 95% because many rows have all composition")
+    print("columns empty (not reported in SIPSN).")
 
 # ============================================================
-# TAHAP 2B: PEMBERSIHAN DATA
+# STAGE 2B: DATA CLEANING
 print("\n" + "=" * 60)
-print("TAHAP 2B — PEMBERSIHAN DATA")
+print("STAGE 2B — DATA CLEANING")
 print("=" * 60)
 
 anom = df[(df["Tahun"] < CUTOFF_YEAR) & (df["Provinsi"].isin(NEW_PROV))]
-print(f"Anomali provinsi baru sebelum {CUTOFF_YEAR}: {len(anom)} baris")
+print(f"Anomalous new provinces before {CUTOFF_YEAR}: {len(anom)} rows")
 df.loc[df["Tahun"] < CUTOFF_YEAR, "Provinsi"] = (
     df.loc[df["Tahun"] < CUTOFF_YEAR, "Provinsi"].replace(MAP_PRE_2022)
 )
-print("Relabeling provinsi baru selesai.")
+print("Province relabeling complete.")
 
 df = df.drop(columns=[c for c in DROP_COLS if c in df.columns])
-print(f"Kolom redundan di-drop: {DROP_COLS}")
+print(f"Redundant columns dropped: {DROP_COLS}")
 
 numeric_cols = df.select_dtypes(include="number").columns.tolist()
 numeric_cols.remove("Tahun")
@@ -153,16 +153,16 @@ for col in numeric_cols:
     n = (df[col] == SENTINEL_VALUE).sum()
     if n > 0:
         df[col] = df[col].replace(SENTINEL_VALUE, np.nan)
-        print(f"Sentinel {SENTINEL_VALUE} diganti NaN di '{col}': {n} nilai")
+        print(f"Sentinel {SENTINEL_VALUE} replaced with NaN in '{col}': {n} values")
         total_sentinel += n
-print(f"Total sentinel value diganti: {total_sentinel}")
+print(f"Total sentinel values replaced: {total_sentinel}")
 
 expected_pairs = set(zip(df["Tahun"], df["Provinsi"]))
-print(f"\nTotal pasangan (Tahun, Provinsi) yang harus ada: {len(expected_pairs)}")
-print("Rincian per tahun:")
+print(f"\nTotal (Year, Province) pairs expected: {len(expected_pairs)}")
+print("Breakdown per year:")
 for tahun in sorted(df["Tahun"].unique()):
     n = sum(1 for t, _ in expected_pairs if t == tahun)
-    print(f"  {tahun}: {n} provinsi")
+    print(f"  {tahun}: {n} provinces")
 
 is_placeholder    = df["Kabupaten/Kota"].isna()
 missing_ratio_row = df[numeric_cols].isna().mean(axis=1)
@@ -173,11 +173,11 @@ n_placeholder = is_placeholder.sum()
 n_drop        = is_too_empty.sum()
 df = df[~is_too_empty].copy()
 
-print(f"\nDrop baris kab/kota dengan >{ROW_MISSING_THRESHOLD*100:.0f}% kolom missing:")
-print(f"  Sebelum     : {n_before} baris")
-print(f"  Placeholder : {n_placeholder} baris (DIPROTEKSI)")
-print(f"  Di-drop     : {n_drop} baris")
-print(f"  Sesudah     : {len(df)} baris")
+print(f"\nDrop district/city rows with >{ROW_MISSING_THRESHOLD*100:.0f}% missing columns:")
+print(f"  Before      : {n_before} rows")
+print(f"  Placeholder : {n_placeholder} rows (PROTECTED)")
+print(f"  Dropped     : {n_drop} rows")
+print(f"  After       : {len(df)} rows")
 
 existing_pairs = set(zip(df["Tahun"], df["Provinsi"]))
 missing_pairs  = expected_pairs - existing_pairs
@@ -191,17 +191,17 @@ if missing_pairs:
         restore_rows.append(row)
     df_restore = pd.DataFrame(restore_rows)
     df = pd.concat([df, df_restore], ignore_index=True)
-    print(f"\nRestore {len(restore_rows)} provinsi yang hilang akibat drop kab/kota:")
+    print(f"\nRestored {len(restore_rows)} provinces lost due to row dropping:")
     for (tahun, prov) in sorted(missing_pairs):
         print(f"    {tahun} | {prov}")
 else:
-    print("\nTidak ada provinsi yang perlu di-restore.")
+    print("\nNo provinces need to be restored.")
 
 
 # ============================================================
-# TAHAP 2C: UJI MCAR
+# STAGE 2C: MCAR TEST
 print("\n" + "=" * 60)
-print("TAHAP 2C — UJI MCAR")
+print("STAGE 2C — MCAR TEST")
 print("=" * 60)
 
 mcar_test = MCARTest(method="little")
@@ -210,23 +210,23 @@ p_value_mcar = mcar_test.little_mcar_test(df[numeric_cols])
 print(f"P-value Little MCAR Test : {p_value_mcar:.5f}")
 
 if p_value_mcar > 0.05:
-    print("KESIMPULAN: Missing value bersifat MCAR")
+    print("CONCLUSION: Missing values are MCAR")
 else:
-    print("KESIMPULAN: Missing value tidak MCAR")
+    print("CONCLUSION: Missing values are NOT MCAR")
 
 
 # ============================================================
-# TAHAP 2D: UJI NORMALITAS SHAPIRO-WILK & IMPUTASI (3 TINGKAT)
-# Strategi imputasi bertahap dari paling spesifik ke paling umum:
-#   TINGKAT 1 — Provinsi + Tahun yang sama
-#   TINGKAT 2 — Provinsi yang sama, semua tahun (jika Tingkat 1 gagal)
-#     Contoh: DKI Jakarta di kolom sumber sampah selalu kosong di
-#     semua kab/kota tahun 2019, tapi ada datanya di tahun 2021 jadi
-#     diisi dari data DKI Jakarta lintas tahun. 
-#   TINGKAT 3 — Seluruh data nasional
+# STAGE 2D: SHAPIRO-WILK NORMALITY TEST & IMPUTATION (3 LEVELS)
+# Tiered imputation strategy from most specific to most general:
+#   LEVEL 1 — Same Province + Same Year
+#   LEVEL 2 — Same Province, all years (if Level 1 fails)
+#     Example: DKI Jakarta's waste source columns are always empty across
+#     all districts in 2019, but data exists in 2021, so it is filled
+#     using DKI Jakarta data across all years.
+#   LEVEL 3 — All national data
 print("\n" + "=" * 60)
-print("TAHAP 2D — UJI NORMALITAS SHAPIRO-WILK &")
-print("           IMPUTASI MISSING VALUE (3 TINGKAT)")
+print("STAGE 2D — SHAPIRO-WILK NORMALITY TEST &")
+print("           MISSING VALUE IMPUTATION (3 LEVELS)")
 print("=" * 60)
 
 alpha = 0.05
@@ -234,18 +234,18 @@ df_imp = df.copy()
 numeric_cols = df_imp.select_dtypes(include="number").columns.tolist()
 numeric_cols.remove("Tahun")
 
-print(f"Uji normalitas : Shapiro-Wilk (valid untuk n = 2 hingga 50)")
-print(f"Alpha          : {alpha} (tingkat signifikansi 5%)")
-print(f"Jumlah fitur numerik: {len(numeric_cols)}")
+print(f"Normality test : Shapiro-Wilk (valid for n = 2 to 50)")
+print(f"Alpha          : {alpha} (5% significance level)")
+print(f"Number of numeric features: {len(numeric_cols)}")
 
-# Hitung fallback nasional (Tingkat 3) sekali di awal
-print("\nMenghitung nilai fallback nasional (Tingkat 3)...")
+# Compute national fallback values (Level 3) once upfront
+print("\nComputing national fallback values (Level 3)...")
 fallback_nasional = {}
 for col in numeric_cols:
     fill, method, dist = tentukan_nilai_isi(df_imp[col].values, alpha=alpha)
     fallback_nasional[col] = {"fill": fill, "method": method, "dist": dist}
 
-print("\nProses imputasi:\n")
+print("\nImputation process:\n")
 imputation_log = []
 
 for col in numeric_cols:
@@ -253,13 +253,13 @@ for col in numeric_cols:
     if len(idx_all_missing) == 0:
         continue
 
-    print(f"Kolom: '{col}' | total missing: {len(idx_all_missing)}")
+    print(f"Column: '{col}' | total missing: {len(idx_all_missing)}")
 
     for idx in idx_all_missing:
         tahun    = df_imp.at[idx, "Tahun"]
         provinsi = df_imp.at[idx, "Provinsi"]
 
-        # TINGKAT 1: Provinsi + Tahun yang sama
+        # LEVEL 1: Same Province + Same Year
         mask_t1 = (
             (df_imp["Tahun"]    == tahun)    &
             (df_imp["Provinsi"] == provinsi) &
@@ -270,10 +270,10 @@ for col in numeric_cols:
         if len(x_t1) > 0:
             fill, method, dist = tentukan_nilai_isi(x_t1, alpha=alpha)
             tingkat = 1
-            sumber  = f"provinsi {provinsi}, tahun {tahun}"
+            sumber  = f"province {provinsi}, year {tahun}"
 
         else:
-            # TINGKAT 2: Provinsi yang sama, semua tahun
+            # LEVEL 2: Same Province, all years
             mask_t2 = (
                 (df_imp["Provinsi"] == provinsi) &
                 (df_imp.index       != idx)
@@ -283,15 +283,15 @@ for col in numeric_cols:
             if len(x_t2) > 0:
                 fill, method, dist = tentukan_nilai_isi(x_t2, alpha=alpha)
                 tingkat = 2
-                sumber  = f"provinsi {provinsi}, semua tahun"
+                sumber  = f"province {provinsi}, all years"
 
             else:
-                # TINGKAT 3: Seluruh data nasional
+                # LEVEL 3: All national data
                 fill    = fallback_nasional[col]["fill"]
                 method  = fallback_nasional[col]["method"]
                 dist    = fallback_nasional[col]["dist"]
                 tingkat = 3
-                sumber  = "nasional (semua provinsi & tahun)"
+                sumber  = "national (all provinces & years)"
 
         df_imp.at[idx, col] = fill
 
@@ -306,72 +306,72 @@ for col in numeric_cols:
             "Nilai Isi"     : round(fill, 4) if not np.isnan(fill) else "NaN",
         })
 
-        # print(f"  [{tahun} | {provinsi}] Tingkat {tingkat} ({sumber}) | {method} | isi={fill:.4f}")
+        # print(f"  [{tahun} | {provinsi}] Level {tingkat} ({sumber}) | {method} | fill={fill:.4f}")
 
 sisa_missing = int(df_imp[numeric_cols].isna().sum().sum())
-print(f"\nTotal missing setelah imputasi: {sisa_missing}")
+print(f"\nTotal missing after imputation: {sisa_missing}")
 if sisa_missing == 0:
-    print("Tidak ada missing value tersisa.")
+    print("No missing values remaining.")
 else:
-    print("Masih ada missing — cek log_imputasi.csv untuk detailnya.")
+    print("Missing values still exist — check log_imputasi.csv for details.")
 
-# encoding="utf-8-sig" agar tanda seperti p=0.xxxx terbaca normal di Excel
+# encoding="utf-8-sig" so that characters like p=0.xxxx render correctly in Excel
 pd.DataFrame(imputation_log).to_csv("log_imputasi.csv", index=False, encoding="utf-8-sig")
-print("Log imputasi disimpan ke: log_imputasi.csv")
+print("Imputation log saved to: log_imputasi.csv")
 
 log_df = pd.DataFrame(imputation_log)
 if len(log_df) > 0:
-    print("\nRingkasan jumlah pengisian per tingkat imputasi:")
+    print("\nSummary of fill counts per imputation level:")
     ringkasan = log_df["Tingkat"].value_counts().sort_index()
     label_tingkat = {
-        1: "Tingkat 1 — provinsi + tahun sama",
-        2: "Tingkat 2 — provinsi sama, semua tahun",
-        3: "Tingkat 3 — nasional (fallback terakhir)",
+        1: "Level 1 — same province + same year",
+        2: "Level 2 — same province, all years",
+        3: "Level 3 — national fallback (last resort)",
     }
     for t, jumlah in ringkasan.items():
-        print(f"  {label_tingkat.get(t, t)}: {jumlah} pengisian")
+        print(f"  {label_tingkat.get(t, t)}: {jumlah} fills")
 
 # ============================================================
-# TAHAP 2E: AGREGASI KAB/KOTA → PROVINSI (Median)
+# STAGE 2E: AGGREGATION FROM DISTRICT/CITY TO PROVINCE (Median)
 print("\n" + "=" * 60)
-print("TAHAP 2E — AGREGASI KAB/KOTA → PROVINSI (Median)")
+print("STAGE 2E — AGGREGATION FROM DISTRICT/CITY TO PROVINCE (Median)")
 print("=" * 60)
 
 df_prov = df_imp.groupby(["Tahun", "Provinsi"], as_index=False)[numeric_cols].median()
 
-print(f"Shape setelah agregasi: {df_prov.shape}")
-print("\nJumlah provinsi per tahun:")
+print(f"Shape after aggregation: {df_prov.shape}")
+print("\nNumber of provinces per year:")
 for tahun in sorted(df_prov["Tahun"].unique()):
     n = len(df_prov[df_prov["Tahun"] == tahun])
-    print(f"  {tahun}: {n} provinsi")
+    print(f"  {tahun}: {n} provinces")
 
 total_expected = len(expected_pairs)
 total_actual   = len(df_prov)
-status = "yes lengkap" if total_actual == total_expected else "oh no"
-print(f"\nTotal baris: {total_actual} / {total_expected} {status}")
+status = "yes complete" if total_actual == total_expected else "oh no"
+print(f"\nTotal rows: {total_actual} / {total_expected} {status}")
 
 n_kabkota = df_imp.groupby(["Tahun", "Provinsi"]).size().reset_index(name="n_kabkota")
-print("\nStatistik jumlah kab/kota per provinsi (setelah cleaning):")
+print("\nStatistics of district/city count per province (after cleaning):")
 print(n_kabkota["n_kabkota"].describe())
-print("\nCATATAN: Median digunakan sebagai nilai representatif provinsi")
-print("(robust terhadap outlier antar kab/kota dalam satu provinsi).")
+print("\nNOTE: Median is used as the representative value for each province")
+print("(robust against outliers across districts/cities within a province).")
 
 # ============================================================
-# TAHAP 2F: NORMALISASI DATA (Min-Max)
+# STAGE 2F: DATA NORMALIZATION (Min-Max)
 print("\n" + "=" * 60)
-print("TAHAP 2F — NORMALISASI DATA (Min-Max Scaling)")
+print("STAGE 2F — DATA NORMALIZATION (Min-Max Scaling)")
 print("=" * 60)
 
 scaler    = MinMaxScaler()
 df_scaled = df_prov.copy()
 df_scaled[numeric_cols] = scaler.fit_transform(df_prov[numeric_cols])
 
-print("Rentang setelah normalisasi (semua fitur harus [0, 1]):")
+print("Range after normalization (all features must be in [0, 1]):")
 print(df_scaled[numeric_cols].agg(["min", "max"]))
 
-# SIMPAN OUTPUT
+# SAVE OUTPUT
 print("\n" + "=" * 60)
-print("MENYIMPAN OUTPUT")
+print("SAVING OUTPUT")
 print("=" * 60)
 
 # df.to_csv("02_after_admin_cleaned.csv", index=False)
@@ -380,12 +380,12 @@ print("=" * 60)
 # df_scaled.to_csv("05_scaled_provinsi.csv", index=False)
 # n_kabkota.to_csv("06_info_n_kabkota.csv", index=False)
 
-print("02_after_admin_cleaned.csv  — setelah cleaning & standarisasi admin")
-print("03_imputed_kabkota.csv      — setelah imputasi (level kab/kota)")
-print("04_aggregated_provinsi.csv  — setelah agregasi median ke provinsi")
-print("05_scaled_provinsi.csv      — setelah normalisasi Min-Max (INPUT CLUSTERING)")
-print("06_info_n_kabkota.csv       — info jumlah kab/kota per provinsi-tahun")
+print("02_after_admin_cleaned.csv  — after cleaning & administrative standardization")
+print("03_imputed_kabkota.csv      — after imputation (district/city level)")
+print("04_aggregated_provinsi.csv  — after median aggregation to province level")
+print("05_scaled_provinsi.csv      — after Min-Max normalization (CLUSTERING INPUT)")
+print("06_info_n_kabkota.csv       — district/city count info per province-year")
 
-print(f"\nPreprocessing selesai.")
-print(f"   Input clustering: {df_scaled.shape[0]} baris x {len(numeric_cols)} fitur numerik")
-print(f"   ({df_scaled['Tahun'].nunique()} tahun x rata-rata {df_scaled.shape[0]//df_scaled['Tahun'].nunique()} provinsi/tahun)")
+print(f"\nPreprocessing complete.")
+print(f"   Clustering input: {df_scaled.shape[0]} rows x {len(numeric_cols)} numeric features")
+print(f"   ({df_scaled['Tahun'].nunique()} years x avg {df_scaled.shape[0]//df_scaled['Tahun'].nunique()} provinces/year)")
