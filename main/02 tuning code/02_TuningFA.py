@@ -10,16 +10,16 @@ os.makedirs(OUT_DIR, exist_ok=True)
 year_col = "Tahun"
 id_col   = "Provinsi"
 
-T                   = 0.09  # hasil tuning T sebelumnya
+T                   = 0.09  # T value obtained from previous tuning
 m                   = 2.0
 epsilon             = 1e-5
 tau                 = 200
 c_for_tuning        = 4
-N_RUNS_PER_TRIAL    = 5     # berapa kali tiap kombinasi parameter dicoba
+N_RUNS_PER_TRIAL    = 5     # number of times each parameter combination is tested
 SEED_BASE           = 42
 IMBALANCE_THRESHOLD = 0.80
 
-# Jumlah trial Optuna
+# Number of Optuna trials
 N_TRIALS = 100
 
 # ==============================================================
@@ -28,14 +28,14 @@ df = pd.read_csv(PATH)
 feature_cols = [col for col in df.columns if col not in [year_col, id_col]]
 X_df = df[feature_cols].apply(pd.to_numeric, errors="coerce")
 if X_df.isnull().sum().sum() > 0:
-    raise ValueError("Masih ada NaN di data!")
+    raise ValueError("NaN values still present in data!")
 X = X_df.to_numpy(dtype=float)
-print("Shape data:", X.shape)
+print("Data shape:", X.shape)
 
 
-# FUNGSI BANTU
+# HELPER FUNCTIONS
 def hitung_jarak_euclidean(X, V):
-    """Persamaan 2.2: d(x_j, v_i) = sqrt( sum_l (x_jl - v_il)^2 )"""
+    """Equation 2.2: d(x_j, v_i) = sqrt( sum_l (x_jl - v_il)^2 )"""
     n = X.shape[0]
     c = V.shape[0]
     dist = np.zeros((n, c))
@@ -45,7 +45,7 @@ def hitung_jarak_euclidean(X, V):
     return dist
 
 def hitung_objektif_frcm(X, V, U, m):
-    """Persamaan 2.14: J(U,V) = sum_j sum_i (u_ij^m) * ||x_j - v_i||^2"""
+    """Equation 2.14: J(U,V) = sum_j sum_i (u_ij^m) * ||x_j - v_i||^2"""
     n = X.shape[0]
     c = V.shape[0]
     J = 0.0
@@ -55,7 +55,7 @@ def hitung_objektif_frcm(X, V, U, m):
     return J
 
 def tentukan_region_dan_keanggotaan(X, V, m, T):
-    """Persamaan 2.12 dan 2.13."""
+    """Equations 2.12 and 2.13."""
     n = X.shape[0]
     c = V.shape[0]
     dist = hitung_jarak_euclidean(X, V) + 1e-12
@@ -92,7 +92,7 @@ def tentukan_region_dan_keanggotaan(X, V, m, T):
     return U, in_lower, in_boundary
 
 def perbarui_centroid(X, U, m, rng):
-    """Persamaan 2.16: v_i = sum_j(u_ij^m * x_j) / sum_j(u_ij^m)"""
+    """Equation 2.16: v_i = sum_j(u_ij^m * x_j) / sum_j(u_ij^m)"""
     c      = U.shape[1]
     Um     = U ** m
     bobot  = Um.sum(axis=0)
@@ -136,20 +136,20 @@ def fafrcm(X, c, m, T, epsilon, tau,
         return hitung_objektif_frcm(X, V, U_tmp, m)
 
     for t in range(1, MAX_ITER_FA + 1):
-        # alpha_t = ALPHA0 * THETA^(t-1): langkah acak meluruh setiap iterasi
+        # alpha_t = ALPHA0 * THETA^(t-1): random step size decays each iteration
         alpha_t = ALPHA0 * (THETA ** (t - 1))
         J_vals  = np.array([J_of(fireflies[i]) for i in range(N_FIREFLIES)])
 
         for i in range(N_FIREFLIES):
             for j in range(N_FIREFLIES):
                 if J_vals[j] < J_vals[i]:
-                    # Persamaan 2.19: jarak antar kunang-kunang
+                    # Equation 2.19: distance between fireflies
                     rij = np.linalg.norm(
                         fireflies[i].reshape(-1) - fireflies[j].reshape(-1)
                     )
-                    # Persamaan 2.18
+                    # Equation 2.18
                     beta = BETA0 * np.exp(-GAMMA * (rij ** 2))
-                    # Persamaan 2.20
+                    # Equation 2.20
                     fireflies[i] = (
                         fireflies[i]
                         + beta * (fireflies[j] - fireflies[i])
@@ -167,24 +167,24 @@ def fafrcm(X, c, m, T, epsilon, tau,
 
 
 # ==============================================================
-# FUNGSI OBJEKTIF UNTUK OPTUNA
-# Tugas fungsi ini:
-#   1. Minta Optuna pilihkan nilai parameter FA dalam rentang yang ditentukan
-#   2. Jalankan FAFRCM sebanyak N_RUNS_PER_TRIAL kali
-#   3. Kembalikan skor (makin kecil = makin baik) ke Optuna
+# OBJECTIVE FUNCTION FOR OPTUNA
+# This function:
+#   1. Asks Optuna to suggest FA parameter values within the specified ranges
+#   2. Runs FAFRCM N_RUNS_PER_TRIAL times
+#   3. Returns a score (lower = better) back to Optuna
 
 def objective(trial):
-    # suggest_int  : Optuna pilih bilangan bulat dalam rentang [low, high]
-    # suggest_float: Optuna pilih bilangan desimal dalam rentang [low, high]
+    # suggest_int  : Optuna picks an integer within [low, high]
+    # suggest_float: Optuna picks a float within [low, high]
     N_FIREFLIES = trial.suggest_int  ("N_FIREFLIES", 20,   40  )
     MAX_ITER_FA = trial.suggest_int  ("MAX_ITER_FA", 100, 300  )
     THETA       = trial.suggest_float("THETA",       0.95, 0.99)
     BETA0       = trial.suggest_float("BETA0",       0.5,  2.0 )
     GAMMA       = trial.suggest_float("GAMMA",       0.1,  2.0 )
-    ALPHA0      = 1.0  # ALPHA0 nilainya tetap, tidak di-tune
+    ALPHA0      = 1.0  # ALPHA0 is fixed, not tuned
 
     # ----------------------------------------------------------
-    # Jalankan FAFRCM sebanyak N_RUNS_PER_TRIAL kali
+    # Run FAFRCM N_RUNS_PER_TRIAL times
     final_objectives   = []
     max_cluster_ratios = []
     boundary_ratios    = []
@@ -208,7 +208,7 @@ def objective(trial):
         max_cluster_ratios.append(max_ratio)
         boundary_ratios.append(boundary_ratio)
 
-    # Hitung skor (makin kecil skornya = kombinasi parameter makin baik)
+    # Compute score (lower score = better parameter combination)
     avg_final_objective   = np.mean(final_objectives)
     avg_max_cluster_ratio = np.mean(max_cluster_ratios)
 
@@ -218,7 +218,7 @@ def objective(trial):
         + 5  * n_imbalanced_runs
     )
 
-    # Simpan info/atribut tambahan ke dalam trial agar bisa dibaca nanti
+    # Save additional attributes to the trial for later inspection
     trial.set_user_attr("avg_final_objective",    avg_final_objective)
     trial.set_user_attr("std_final_objective",    np.std(final_objectives,   ddof=1))
     trial.set_user_attr("avg_max_cluster_ratio",  avg_max_cluster_ratio)
@@ -226,24 +226,24 @@ def objective(trial):
     trial.set_user_attr("avg_boundary_ratio",     np.mean(boundary_ratios))
     trial.set_user_attr("n_imbalanced_runs",      n_imbalanced_runs)
 
-    return score   # Optuna akan meminimalkan nilai ini
+    return score   # Optuna will minimize this value
 
 
-# JALANKAN OPTUNA
-print(f"\nMemulai Optuna dengan {N_TRIALS} trial...\n")
+# RUN OPTUNA
+print(f"\nStarting Optuna with {N_TRIALS} trials...\n")
 grand_start = time.perf_counter()
 
-# TPESampler: Optuna memilih parameter berikutnya berdasarkan hasil trial sebelumnya
+# TPESampler: Optuna picks the next parameters based on results from previous trials
 study = optuna.create_study(
     direction  = "minimize",
     study_name = "tuning_FA_fafrcm",
-    sampler    = optuna.samplers.TPESampler(seed=SEED_BASE),  # agar hasil bisa direproduksi
+    sampler    = optuna.samplers.TPESampler(seed=SEED_BASE),  # for reproducibility
 )
 
-# Nonaktifkan log bawaan Optuna agar output lebih bersih
+# Suppress Optuna's default logging for cleaner output
 optuna.logging.set_verbosity(optuna.logging.WARNING)
 
-# Callback untuk cetak progress tiap trial selesai
+# Callback to print progress after each trial completes
 def print_progress(study, trial):
     print(
         f"  [Trial {trial.number+1:>3}/{N_TRIALS}] "
@@ -257,7 +257,7 @@ def print_progress(study, trial):
 # start
 study.optimize(objective, n_trials=N_TRIALS, callbacks=[print_progress])
 
-# KUMPULKAN HASIL KE DATAFRAME
+# COLLECT RESULTS INTO DATAFRAME
 summary_rows = []
 for t in study.trials:
     row = {
@@ -282,11 +282,11 @@ summary_df = summary_df.sort_values("score_select").reset_index(drop=True)
 
 summary_df.to_csv(os.path.join(OUT_DIR, "tuning_FA_summary.csv"), index=False)
 
-print("\nTOP 10 PARAMETER FA TERBAIK")
+print("\nTOP 10 BEST FA PARAMETERS")
 print(summary_df.head(10).to_string())
 
 best = study.best_trial
-print("\n========== PARAMETER TERBAIK ==========")
+print("\n========== BEST PARAMETERS ==========")
 print(f"  N_FIREFLIES : {best.params['N_FIREFLIES']}")
 print(f"  MAX_ITER_FA : {best.params['MAX_ITER_FA']}")
 print(f"  ALPHA0      : 1.0")
@@ -294,4 +294,4 @@ print(f"  THETA       : {best.params['THETA']:.3f}")
 print(f"  BETA0       : {best.params['BETA0']:.3f}")
 print(f"  GAMMA       : {best.params['GAMMA']:.3f}")
 print(f"  Score       : {best.value:.4f}")
-print(f"\nTotal runtime (detik): {time.perf_counter() - grand_start:.2f}")
+print(f"\nTotal runtime (seconds): {time.perf_counter() - grand_start:.2f}")
