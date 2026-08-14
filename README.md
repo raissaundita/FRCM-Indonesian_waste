@@ -48,15 +48,15 @@ Each clustering method was executed for 100 runs using different random initiali
 
 ## Repository Structure
 
-Dataset/         -> Raw and aggregated datasets
-PREPROCE/        -> Data preprocessing
-TUNING/          -> Parameter tuning for FRCM and Firefly-FRCM
-ELBOW/           -> Optimal cluster number determination
-KLASTER_DATA/    -> Clustering results
-EVALUASI/        -> Silhouette, Dunn, Symmetric Purity, and Xie-Beni evaluation
-UJI STATIS/      -> Friedman and Nemenyi statistical tests
-VISUALISASI/     -> t-SNE and cluster map visualizations
-Dashboard/       -> Interactive analysis dashboard
+* Dataset/         -> Raw and aggregated datasets
+* PREPROCE/        -> Data preprocessing
+* TUNING/          -> Parameter tuning for FRCM and Firefly-FRCM
+* ELBOW/           -> Optimal cluster number determination
+* KLASTER_DATA/    -> Clustering results
+* EVALUASI/        -> Silhouette, Dunn, Symmetric Purity, and Xie-Beni evaluation
+* UJI STATIS/      -> Friedman and Nemenyi statistical tests
+* VISUALISASI/     -> t-SNE and cluster map visualizations
+* Dashboard/       -> Interactive analysis dashboard
 
 ## Tools and Libraries
 * Python
