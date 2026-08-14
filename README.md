@@ -1,65 +1,77 @@
-# Perbandingan Metode Klasterisasi Berbasis Hard, Fuzzy, dan Metaheuristik-Fuzzy Rough untuk Analisis Data Sampah Antarprovinsi di Indonesia
+# A Comparison of K-Means, Fuzzy C-Means, Fuzzy Rough C-Means, and Firefly–Fuzzy Rough C-Means for Clustering Provincial-Level Waste Data in Indonesia
 
-## Deskripsi Penelitian
+## Research Overview
 
-Penelitian ini bertujuan membandingkan performa metode klasterisasi berbasis hard, fuzzy, dan metaheuristik-fuzzy rough dalam mengelompokkan karakteristik sampah antarprovinsi di Indonesia menggunakan data Sistem Informasi Pengelolaan Sampah Nasional (SIPSN) periode 2019–2025.
-
-Metode yang dibandingkan meliputi:
+This study compares the performance of four clustering methods for analyzing provincial-level waste characteristics in Indonesia:
 
 * K-Means
 * Fuzzy C-Means (FCM)
 * Fuzzy Rough C-Means (FRCM)
-* Firefly Algorithm Fuzzy Rough C-Means (FA-FRCM)
+* Firefly–Fuzzy Rough C-Means (Firefly-FRCM)
 
-Evaluasi dilakukan menggunakan Silhouette Score, Dunn Index, Symmetric Purity, dan Xie-Beni Index. Perbedaan performa metode diuji menggunakan Friedman Test dan Nemenyi Test.
+The dataset was obtained from the National Waste Management Information System (Sistem Informasi Pengelolaan Sampah Nasional, SIPSN) for the 2019–2025 period. The original data were collected at the regency/city level and include waste generation, waste composition, and waste source information. These data were subsequently preprocessed and aggregated to the provincial level.
 
-## Diagram Alir Penelitian
+The study focuses on comparing hard clustering, fuzzy clustering, fuzzy-rough clustering, and metaheuristic-assisted fuzzy-rough clustering approaches in identifying patterns of waste characteristics across Indonesian provinces.
+
+Cluster quality was evaluated using the Silhouette Index, Dunn Index, Symmetric Purity, and Xie-Beni Index. The Silhouette Index, Dunn Index, and Symmetric Purity were used to compare all clustering methods, while the Xie-Beni Index was specifically applied to the fuzzy-based methods: FCM, FRCM, and Firefly-FRCM.
+
+Statistical differences in clustering performance were further analyzed using the Friedman Test and Nemenyi post-hoc Test.
+
+## Research Workflow
 
 <p align="center">
-  <img src="images/diagram_alir_penelitian.png" width="500">
+  <img src="images/flowchart.png" width="500">
 </p>
 
 <p align="center">
-  Diagram alir penelitian tugas akhir.
+  Research workflow of the final project.
 </p>
 
-## Tahapan Penelitian
+## Research Stages
 
-1. Pengumpulan dan pemahaman data SIPSN (2019–2025)
-2. Pra-pemrosesan data
-3. Tuning parameter FRCM dan FA-FRCM
-4. Penentuan jumlah klaster optimal
-5. Penerapan algoritma klasterisasi
-6. Evaluasi hasil klasterisasi
-7. Uji statistik
-8. Visualisasi dan interpretasi hasil
+1. Data collection and understanding of the SIPSN dataset (2019–2025)
+2. Data preprocessing
+   - Data format and completeness checking
+   - Data cleaning
+   - Normality testing
+   - Missing value handling
+   - Regency/city-level data aggregation to the provincial level
+   - Min-Max normalization
+3. Parameter tuning for FRCM and Firefly-FRCM
+4. Determination of the optimal number of clusters using the Elbow Method
+5. Application of the clustering algorithms
+6. Clustering performance evaluation
+7. Statistical analysis using the Friedman and Nemenyi Tests
+8. Cluster visualization and interpretation using t-SNE and spatial maps
 
-## Struktur Repository
+Each clustering method was executed for 100 runs using different random initializations to obtain a more representative performance distribution and reduce the influence of a single initialization.
 
-```text
-Dataset/         -> Dataset mentah dan hasil agregasi
-PREPROCE/        -> Pra-pemrosesan data
-TUNING/          -> Tuning parameter FRCM dan FA-FRCM
-ELBOW/           -> Penentuan jumlah klaster optimal
-KLASTER_DATA/    -> Hasil klasterisasi
-EVALUASI/        -> Silhouette, Dunn, SP, XB
-UJI STATIS/      -> Friedman dan Nemenyi Test
-VISUALISASI/     -> t-SNE dan peta klaster
-Dashboard/       -> Dashboard hasil analisis
-```
+## Repository Structure
 
-## Tools
+Dataset/         -> Raw and aggregated datasets
+PREPROCE/        -> Data preprocessing
+TUNING/          -> Parameter tuning for FRCM and Firefly-FRCM
+ELBOW/           -> Optimal cluster number determination
+KLASTER_DATA/    -> Clustering results
+EVALUASI/        -> Silhouette, Dunn, Symmetric Purity, and Xie-Beni evaluation
+UJI STATIS/      -> Friedman and Nemenyi statistical tests
+VISUALISASI/     -> t-SNE and cluster map visualizations
+Dashboard/       -> Interactive analysis dashboard
 
+## Tools and Libraries
 * Python
 * Pandas
 * NumPy
+* SciPy
 * Scikit-Learn
+* Optuna
 * Matplotlib
 * GeoPandas
 * QGIS
 
-## Penulis
-
-Raissa Undita,
-Departemen Matematika,
+## Author
+Raissa Undita Estiningtyas
+Department of Mathematics
+Faculty of Science and Data Analytics
 Institut Teknologi Sepuluh Nopember (ITS)
+Surabaya, Indonesia
