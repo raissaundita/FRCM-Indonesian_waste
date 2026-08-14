@@ -70,8 +70,8 @@ Each clustering method was executed for 100 runs using different random initiali
 * QGIS
 
 ## Author
-Raissa Undita Estiningtyas
-Department of Mathematics
-Faculty of Science and Data Analytics
-Institut Teknologi Sepuluh Nopember (ITS)
+Raissa Undita Estiningtyas <br>
+Department of Mathematics <br>
+Faculty of Science and Data Analytics <br>
+Institut Teknologi Sepuluh Nopember (ITS) <br>
 Surabaya, Indonesia
