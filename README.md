@@ -1,4 +1,4 @@
-# A Comparison of K-Means, Fuzzy C-Means, Fuzzy Rough C-Means, and Firefly–Fuzzy Rough C-Means for Clustering Provincial-Level Waste Data in Indonesia
+# A comparison of fuzzy clustering approach for provincial-level waste data in Indonesia
 
 ## Research Overview
 
