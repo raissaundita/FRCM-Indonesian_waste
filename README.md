@@ -46,7 +46,7 @@ The dashboard allows users to:
 The dashboard is intended as a visual monitoring and exploration interface for the analytical results, complementing the statistical and spatial assessment presented in the study.
 
 Dashboard Preview
-<p align="center"> <img src="images/dashboard.png" width="100%"> </p> <p align="center"> <em>Interactive dashboard for exploring spatial and temporal patterns in provincial waste profiles based on the selected FRCM solution.</em> </p>
+<p align="center"> <img src="images/dashboard overview.png" width="100%"> </p> <p align="center"> <em>Interactive dashboard for exploring spatial and temporal patterns in provincial waste profiles based on the selected FRCM solution.</em> </p>
 
 ## Research Workflow
 
