@@ -1,4 +1,4 @@
-# A comparison of fuzzy clustering approach for provincial-level waste data in Indonesia
+# Assessing spatial and temporal patterns in provincial waste profiles in Indonesia using hard, fuzzy, and fuzzy-rough clustering
 
 ## Research Overview
 
