@@ -65,7 +65,6 @@ Waste data were obtained from the National Waste Management Information System (
    - Waste generation
    - Waste composition
    - Waste sources
-
 The analysis focuses on identifying relative similarities among provinces and province-year observations.
 2. Data preprocessing
    - Data format and completeness checking
