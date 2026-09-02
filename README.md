@@ -81,10 +81,10 @@ The analysis focuses on identifying relative similarities among provinces and pr
 8. Provincial Waste-Profile Assessment
 9. Spatial and Temporal Assessment
 Cluster membership is examined across provinces and years to identify:
-- Spatial differences in waste profiles
-- Temporal changes in cluster membership
-- Provinces with relatively stable profiles
-- Provinces exhibiting changes in their waste-profile classification
+   - Spatial differences in waste profiles
+   - Temporal changes in cluster membership
+   - Provinces with relatively stable profiles
+   - Provinces exhibiting changes in their waste-profile classification
 GIS-based thematic maps are used to visualize these patterns geographically.
 10. Interactive Dashboard
 The final clustering results are incorporated into an interactive dashboard to facilitate exploration of provincial waste profiles.
