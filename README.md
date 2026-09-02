@@ -65,6 +65,7 @@ Waste data were obtained from the National Waste Management Information System (
    - Waste generation
    - Waste composition
    - Waste sources
+
 The analysis focuses on identifying relative similarities among provinces and province-year observations.
 2. Data preprocessing
    - Data format and completeness checking
@@ -85,6 +86,7 @@ Cluster membership is examined across provinces and years to identify:
    - Temporal changes in cluster membership
    - Provinces with relatively stable profiles
    - Provinces exhibiting changes in their waste-profile classification
+
 GIS-based thematic maps are used to visualize these patterns geographically.
 10. Interactive Dashboard
 The final clustering results are incorporated into an interactive dashboard to facilitate exploration of provincial waste profiles.
