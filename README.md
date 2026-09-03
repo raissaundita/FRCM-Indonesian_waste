@@ -29,7 +29,7 @@ Beyond methodological comparison, the selected clustering solution is used to ch
 
 The resulting clusters are interpreted as descriptive waste profiles that represent relative similarities among province-year observations. They are intended to support the assessment of spatial and temporal heterogeneity in waste characteristics rather than serve as direct measures of environmental risk, causal classifications, or standalone policy recommendations.
 
-## Monitoring and Spatial Visualization Dashboard
+## Monitoring and Spatial Visualization Dashboard (https://dashboard-ta-raissa.infinityfreeapp.com/?i=1)
 
 An interactive dashboard was developed to provide a visual representation of the clustering results and facilitate exploration of provincial waste profiles over time.
 
