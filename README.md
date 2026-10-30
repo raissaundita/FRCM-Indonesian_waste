@@ -29,7 +29,11 @@ Beyond methodological comparison, the selected clustering solution is used to ch
 
 The resulting clusters are interpreted as descriptive waste profiles that represent relative similarities among province-year observations. They are intended to support the assessment of spatial and temporal heterogeneity in waste characteristics rather than serve as direct measures of environmental risk, causal classifications, or standalone policy recommendations.
 
-## Monitoring and Spatial Visualization Dashboard (https://dashboard-ta-raissa.infinityfreeapp.com/?i=1)
+## Monitoring and Spatial Visualization Dashboard
+
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Open-brightgreen)](https://raissaundita.github.io/FRCM-Indonesian_waste/)
+
+🔗 **Live dashboard:** https://raissaundita.github.io/FRCM-Indonesian_waste/
 
 An interactive dashboard was developed to provide a visual representation of the clustering results and facilitate exploration of provincial waste profiles over time.
 
@@ -46,7 +50,7 @@ The dashboard allows users to:
 The dashboard is intended as a visual monitoring and exploration interface for the analytical results, complementing the statistical and spatial assessment presented in the study.
 
 Dashboard Preview
-<p align="center"> <img src="images/dashboard overview.png" width="100%"> </p> <p align="center"> <em>Interactive dashboard for exploring spatial and temporal patterns in provincial waste profiles based on the selected FRCM solution.</em> </p>
+[![Dashboard Preview](images/dashboard%20overview.png)](https://raissaundita.github.io/FRCM-Indonesian_waste/) <em>Interactive dashboard for exploring spatial and temporal patterns in provincial waste profiles based on the selected FRCM solution.</em> </p>
 
 ## Research Workflow
 
