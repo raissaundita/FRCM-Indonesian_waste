@@ -1,0 +1,33 @@
+# Nama workflow, akan tampil di tab "Actions"
+name: Deploy dashboard ke GitHub Pages
+
+# Kapan workflow berjalan
+on:
+  push:
+    branches: [main]      # otomatis setiap ada perubahan di branch main
+  workflow_dispatch:      # bisa juga dijalankan manual lewat tombol
+
+# Izin yang dibutuhkan untuk memublikasikan halaman
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # 1. Ambil isi repo
+      - uses: actions/checkout@v4
+      # 2. Siapkan konfigurasi Pages
+      - uses: actions/configure-pages@v5
+      # 3. Paketkan HANYA folder Dashboard (huruf besar/kecil harus sama persis)
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: Dashboard
+      # 4. Publikasikan ke internet
+      - id: deployment
+        uses: actions/deploy-pages@v4
