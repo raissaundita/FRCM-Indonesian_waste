@@ -8,11 +8,11 @@
 let tahunAktif = 2022;
 
 // Store all loaded data
-// Example: semuaData[2019] = [{ provinsi, klaster, ... }, ...]
+// Example: semuaData[2019] = [{ provinsi, cluster, ... }, ...]
 const semuaData = {};
 
 // Cluster colors
-const WARNA_KLASTER = {
+const WARNA_cluster = {
   1: "#29B6F6",  // blue
   2: "#66BB6A",  // green
   3: "#FBC02D",  // yellow
@@ -27,7 +27,7 @@ const TAHUN_LIST = [2019, 2020, 2021, 2022, 2023, 2024, 2025];
 // =====================================================
 async function bacaCSV(tahun) {
 
-  const response = await fetch(`data/klaster_${tahun}.csv`);
+  const response = await fetch(`data/cluster_${tahun}.csv`);
   const teks = await response.text();
 
   const baris = teks.trim().split("\n");
@@ -50,7 +50,7 @@ async function bacaCSV(tahun) {
       provinsi: obj["Provinsi"],
 
       // CSV labels are 0–3, converted to Cluster 1–4
-      klaster: parseInt(obj["label"]) + 1,
+      cluster: parseInt(obj["label"]) + 1,
 
       u0: parseFloat(obj["u_cluster_0"]),
       u1: parseFloat(obj["u_cluster_1"]),
@@ -298,7 +298,7 @@ function isiTabel(tahun) {
   // Sort by cluster number, then province name
   const dataUrut = [...data].sort(
     (a, b) =>
-      a.klaster - b.klaster ||
+      a.cluster - b.cluster ||
       a.provinsi.localeCompare(
         b.provinsi,
         "en"
@@ -347,11 +347,11 @@ function isiTabel(tahun) {
 
         <span
           class="
-            badge-klaster
-            badge-k${item.klaster}
+            badge-cluster
+            badge-k${item.cluster}
           "
         >
-          K${item.klaster}
+          K${item.cluster}
         </span>
 
       </td>
@@ -434,7 +434,7 @@ function bukaPopup(
 
 
   const warna =
-    WARNA_KLASTER[item.klaster];
+    WARNA_cluster[item.cluster];
 
 
   const isBoundary =
@@ -454,7 +454,7 @@ function bukaPopup(
         );
 
       return d
-        ? d.klaster
+        ? d.cluster
         : null;
     });
 
@@ -468,25 +468,25 @@ function bukaPopup(
     {
       label: "K1",
       nilai: item.u0,
-      warna: WARNA_KLASTER[1]
+      warna: WARNA_cluster[1]
     },
 
     {
       label: "K2",
       nilai: item.u1,
-      warna: WARNA_KLASTER[2]
+      warna: WARNA_cluster[2]
     },
 
     {
       label: "K3",
       nilai: item.u2,
-      warna: WARNA_KLASTER[3]
+      warna: WARNA_cluster[3]
     },
 
     {
       label: "K4",
       nilai: item.u3,
-      warna: WARNA_KLASTER[4]
+      warna: WARNA_cluster[4]
     },
 
   ];
@@ -506,7 +506,7 @@ function bukaPopup(
 
         const w =
           k
-            ? WARNA_KLASTER[k]
+            ? WARNA_cluster[k]
             : "#ddd";
 
 
@@ -598,10 +598,10 @@ function bukaPopup(
           <div
             class="
               nilai
-              k${item.klaster}
+              k${item.cluster}
             "
           >
-            Cluster ${item.klaster}
+            Cluster ${item.cluster}
           </div>
 
         </div>
